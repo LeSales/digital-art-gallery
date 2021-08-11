@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import AppHeader from './components/AppHeader'
+import AppHome from './components/AppHome/AppHome'
 
 const Title = styled.h1`
   font-size: 50px;
@@ -6,5 +8,8 @@ const Title = styled.h1`
 `
 
 export default function Home() {
-  return <Title>My page</Title>
+  return <>
+  <AppHeader></AppHeader>
+  <AppHome></AppHome>
+  </>
 }
