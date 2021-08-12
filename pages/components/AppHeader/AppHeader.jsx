@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Link from 'next/link'
+import Link from "next/link";
 
 export const Wrapper = styled.header`
   height: 70px;
@@ -12,7 +12,7 @@ export const Wrapper = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  font-size: 2rem;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,9 +43,9 @@ export const Wrapper = styled.header`
     list-style: none;
   }
   a {
-    padding: 0 1rem;
-    font-size: 2rem;
-    font-weight: 700;
+    padding:0 1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     font-family: sans-serif;
     cursor: pointer;
     text-decoration: none;
@@ -59,15 +59,6 @@ export const Wrapper = styled.header`
   a:active {
     text-decoration: none;
     color: inherit;
-  }
-  a:hover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e22a25;
-    color: #fff;
-    border-radius: 10px;
-    transition: all ease 0.3s;
   }
 `;
 
@@ -110,61 +101,24 @@ function AppHeader() {
         <nav>
           <ul className="menu">
             <li>
-              <a
-                href="/"
-                onClick={(e) => {
-                  let home = document.querySelector(".home");
-                  e.preventDefault();
-                  home && home.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                onClick={(e) => {
-                  let sobre = document.querySelector(".sobre");
-                  e.preventDefault();
-                  sobre && sobre.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Sobre
-              </a>
-            </li>
-            <li>
-                <Link href="/gallery">
-              <a
-                
-              >
-                Galeria
-              </a>
+              <Link href="/">
+                <a>Home</a>
               </Link>
             </li>
             <li>
-              <a
-                href="/"
-                onClick={(e) => {
-                  let signIn = document.querySelector(".login-area");
-                  e.preventDefault();
-                  signIn && signIn.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Sign in 
-              </a>
+              <Link href="/gallery">
+                <a>Galeria</a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"
-                onClick={(e) => {
-                  let signUp = document.querySelector(".login-area");
-                  e.preventDefault();
-                  signUp && signUp.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Sign up
-              </a>
+              <Link href="/loginPage">
+                <a>Login</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/registerPage">
+                <a>Registrar</a>
+              </Link>
             </li>
           </ul>
         </nav>
