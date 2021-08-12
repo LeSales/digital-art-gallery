@@ -31,9 +31,6 @@ export const Wrapper = styled.div`
     margin: 5rem 0;
     display: flex;
   }
-  .conteiner p {
-    text-align: center;
-  }
   .imagem {
     ${flexCenter}
     justify-content: space-between;
@@ -45,8 +42,8 @@ export const Wrapper = styled.div`
   }
   .infos {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
     flex-direction: column;
     color: #21211f;
     width: 25vw;
@@ -90,14 +87,6 @@ export const Wrapper = styled.div`
     background-color: #21211f;
     color: #fff;
   }
-  .links {
-    ${flexCenter}
-    text-decoration: none;
-    height: 3.5rem;
-  }
-  .links:visited {
-    color: inherit;
-  }
   .imagem img {
     max-width: 100%;
     max-height: 100%;
@@ -124,31 +113,29 @@ function AppHighlights() {
     <Wrapper className="portfolio" style={{ marginTop: 50 }}>
       Destaques
       <PortfolioSection
-        title={"Netflix clone"}
+        title={"<Art name>"}
         description={
-          "Catálogo de filmes com aparência semelhante ao da Netflix."
+          "Publicado por <userName> em <sectionDate>"
         }
         url={"https://github.com/LeSales/Netflix-clone-ReactJS"}
         img={
-          "https://raw.githubusercontent.com/LeSales/Personal-page/main/assets/img/netflix.PNG"
+          "./destaque-1.jpg"
         }
       ></PortfolioSection>
       <div className="separator"></div>
       <PortfolioSection
-        title={"algaShopping"}
-        description={"Lista de compras"}
-        url={"https://github.com/LeSales/desafio-react-algaworks-redux"}
+        title={"The Great Last Judgement"}
+        description={"Publicado por <userName> em <sectionDate>"}
         img={
-          "https://raw.githubusercontent.com/LeSales/Personal-page/main/assets/img/algaShopping.PNG"
+          "./destaque-2.jpg"
         }
       ></PortfolioSection>
       <div className="separator"></div>
       <PortfolioSection
-        title={"Vestibulum"}
-        description={"Layout genérico, utilizando React"}
-        url={"https://github.com/LeSales/Layout-ReactJS"}
+        title={"Mrs John Clerk Maxwell (neé Frances Cay) and her Son James, 1833 By William Dyce"}
+        description={"Publicado por <userName> em <sectionDate>"}
         img={
-          "https://raw.githubusercontent.com/LeSales/Personal-page/main/assets/img/vesdtibulum.PNG"
+          "./destaque-3.jpg"
         }
       ></PortfolioSection>
     </Wrapper>
@@ -165,25 +152,6 @@ function PortfolioSection(props) {
         <div className="infos">
           <h2>{props.title}</h2>
           <p>{props.description}</p>
-          <div className="buttons">
-            <a
-              href={props.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="links"
-            >
-              
-            </a>
-
-            <a
-              href={props.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="links"
-            >
-              
-            </a>
-          </div>
         </div>
       </div>
     </>

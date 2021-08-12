@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 99vw;
-  height: 100vh;
+  width: 100vw;
+  height: 80vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -35,8 +35,6 @@ export const Wrapper = styled.div`
 export const SubName = styled.div`
   display: flex;
   flex-direction: row;
-  //margin-top: -15px;
-  margin-left: 5px;
   align-self: center;
   align-items: center;
   justify-content: flex-end;

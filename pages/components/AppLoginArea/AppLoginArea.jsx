@@ -10,25 +10,12 @@ export const Wrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   ${flexCenter}
-  background-color: #191a1c;
+  background-color: #ececec;
   color: #303030;
   .conteiner {
     ${flexCenter}
     max-width: 980px;
-  }
-  .image{
-      width: 30vw;
-      max-width: 980px;
-  }
-  .sobre-text{
-    display: flex;
-  justify-content: center;
-  align-items: flex-start;
-      width: 70vw;
-      height: 50vh;
-      h1{
-          color: #fff;
-      }
+    padding: 5rem;
   }
   
   @media (max-width: 768px) {
@@ -49,13 +36,8 @@ export const Wrapper = styled.div`
 
 function AppSobre() {
   return (
-    <Wrapper className="sobre">
-        <div className="conteiner">
-      <img className="image" src="./sobre.png" />
-      <div className="sobre-text">
-        <h1>Art</h1>
-        </div>
-        </div>
+    <Wrapper className="login-area">
+      <h2>To do: Login Area Section</h2>
     </Wrapper>
   );
 }

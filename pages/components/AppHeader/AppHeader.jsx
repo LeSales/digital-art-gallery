@@ -148,19 +148,7 @@ function AppHeader() {
               <a
                 href="/"
                 onClick={(e) => {
-                  let contato = document.querySelector(".contato");
-                  e.preventDefault();
-                  contato && contato.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Contato
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-                onClick={(e) => {
-                  let signIn = document.querySelector(".sign-in");
+                  let signIn = document.querySelector(".login-area");
                   e.preventDefault();
                   signIn && signIn.scrollIntoView({ behavior: "smooth" });
                 }}
@@ -172,7 +160,7 @@ function AppHeader() {
               <a
                 href="/"
                 onClick={(e) => {
-                  let signUp = document.querySelector(".sign-up");
+                  let signUp = document.querySelector(".login-area");
                   e.preventDefault();
                   signUp && signUp.scrollIntoView({ behavior: "smooth" });
                 }}
