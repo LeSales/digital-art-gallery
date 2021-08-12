@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from 'next/link'
 
 export const Wrapper = styled.header`
   height: 70px;
@@ -133,16 +134,13 @@ function AppHeader() {
               </a>
             </li>
             <li>
+                <Link href="/gallery">
               <a
-                href="/"
-                onClick={(e) => {
-                  let portfolio = document.querySelector(".portfolio");
-                  e.preventDefault();
-                  portfolio && portfolio.scrollIntoView({ behavior: "smooth" });
-                }}
+                
               >
                 Galeria
               </a>
+              </Link>
             </li>
             <li>
               <a
