@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import AppFooter from './components/AppFooter'
 import AppHeader from './components/AppHeader'
-import AppHome from './components/AppHome/AppHome'
+import RegisterSection from './components/RegisterSection/'
+
 
 
 const Title = styled.h1`
@@ -12,9 +13,7 @@ const Title = styled.h1`
 export default function Gallery() {
   return <>
   <AppHeader></AppHeader>
-  <AppHome>
-    <div>To do: register page</div>
-  </AppHome>
+  <RegisterSection/>
   <AppFooter></AppFooter>
   </>
 }
