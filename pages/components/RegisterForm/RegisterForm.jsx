@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import Link from "next/link";
+
+import api from "../../../utils/api";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -43,27 +45,27 @@ export const Wrapper = styled.div`
     }
   }
 
-  .enviar{
+  .enviar {
     margin-top: 2rem;
     width: 50%;
-    align-self:center;
+    align-self: center;
     height: 3rem;
     background-color: #000;
-    border:none;
+    border: none;
     color: #fff;
-    border-radius:5px;
+    border-radius: 5px;
     cursor: pointer;
 
-    :hover{
-      background-color:#202020;
+    :hover {
+      background-color: #202020;
     }
   }
 
-  .text-login{
+  .text-login {
     font-size: 11px;
-    align-self:center;
+    align-self: center;
   }
-  .link-login{
+  .link-login {
     text-decoration: none;
     color: #000;
   }
@@ -72,31 +74,61 @@ export const Wrapper = styled.div`
 function RegisterForm() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
   console.log(errors);
 
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  function handle(e) {
+    const newData = {...data}
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  }
+
+  function submit(e){
+    e.preventDefault();
+    api.post('/auth/register', {
+      name: data.name,
+      email: data.email,
+      password: data.password
+    }).then(res => {
+      console.log(res.data)
+    })
+  }
+
   return (
     <Wrapper>
       <h1 className="title-form">Cadastre-se</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={(e) => submit(e)}>
         <input
+          id="name"
           className="input-name"
           type="text"
           placeholder="Nome"
           {...register("Nome", { required: true, maxLength: 80 })}
+          onChange={(e) => handle(e)}
+          value={data.name}
         />
         <input
+          id="email"
           className="input-email"
-          type="text"
+          type="email"
           placeholder="Email"
           {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+          onChange={(e) => handle(e)}
+          value={data.email}
         />
         <input
+          id="password"
           className="input-senha"
-          type="text"
+          type="password"
           placeholder="Senha"
           {...register("Senha", {
             required: true,
@@ -104,22 +136,25 @@ function RegisterForm() {
             min: 6,
             maxLength: 14,
           })}
+          onChange={(e) => handle(e)}
+          value={data.password}
         />
-        <input
-          className="input-confirm-senha"
-          type="text"
-          placeholder="Confirmar senha"
-          {...register("Confirmar senha", {
-            required: true,
-            max: 16,
-            min: 6,
-            maxLength: 15,
-          })}
-          style={{marginBottom:0}}
-        />
-        <p className="text-login">Já possui registro? Faça o <Link href="/loginPage"><a className="link-login"><strong>Login</strong></a></Link></p>
 
-        <input className="enviar" type="submit"  value="Enviar"/>
+        <p className="text-login">
+          Já possui registro? Faça o{" "}
+          <Link href="/loginPage">
+            <a className="link-login">
+              <strong>Login</strong>
+            </a>
+          </Link>
+        </p>
+
+        <input
+          onSubmit={() => createAccount()}
+          className="enviar"
+          type="submit"
+          value="Enviar"
+        />
       </form>
     </Wrapper>
   );
