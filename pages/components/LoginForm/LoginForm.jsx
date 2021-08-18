@@ -106,16 +106,18 @@ function LoginForm() {
       <h1 className="title-form">Entrar</h1>
       <form onSubmit={(e) => submit(e)}>
         <input
+          id="email"
           className="input-email"
-          type="text"
+          type="email"
           placeholder="Email"
           {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
           onChange={(e) => handle(e)}
           value={data.email}
         />
         <input
+          id="password"
           className="input-senha"
-          type="text"
+          type="password"
           placeholder="Senha"
           {...register("Senha", {
             required: true,
