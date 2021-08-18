@@ -76,7 +76,6 @@ function RegisterForm() {
     register,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
   console.log(errors);
 
   const [data, setData] = useState({
@@ -89,7 +88,6 @@ function RegisterForm() {
     const newData = {...data}
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData);
   }
 
   function submit(e){

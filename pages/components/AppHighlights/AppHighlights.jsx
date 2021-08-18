@@ -63,7 +63,7 @@ export const Wrapper = styled.div`
 
 function AppHighlights() {
 
-  const imageList = highlights.map((item) => <PortfolioSection img={item.image}/>)
+  const imageList = highlights.map((item) => <PortfolioSection key={item.id} img={item.image}/>)
 
   return (
     <Wrapper className="portfolio" >

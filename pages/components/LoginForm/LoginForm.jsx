@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import Link from "next/link";
+
+import api from "../../../utils/api";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -78,15 +80,38 @@ function LoginForm() {
   const onSubmit = (data) => console.log(data);
   console.log(errors);
 
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handle(e) {
+    const newData = {...data}
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+  }
+
+  function submit(e){
+    e.preventDefault();
+    api.post('/auth/authenticate', {
+      email: data.email,
+      password: data.password
+    }).then(res => {
+      console.log(res.data)
+    })
+  }
+
   return (
     <Wrapper>
       <h1 className="title-form">Entrar</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={(e) => submit(e)}>
         <input
           className="input-email"
           type="text"
           placeholder="Email"
           {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+          onChange={(e) => handle(e)}
+          value={data.email}
         />
         <input
           className="input-senha"
@@ -98,10 +123,12 @@ function LoginForm() {
             min: 6,
             maxLength: 14,
           })}
+          onChange={(e) => handle(e)}
+          value={data.password}
         />
         <p className="text-login">Não possui login? <Link href="/registerPage"><a className="link-register"><strong>Cadastre-se</strong></a></Link></p>
 
-        <input className="enviar" type="submit" value="Entrar" />
+        <input onSubmit={() => createAccount()} className="enviar" type="submit" value="Entrar" />
       </form>
     </Wrapper>
   );
