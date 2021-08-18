@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Image from 'next/image'
 
 import {highlights} from '../../../utils/highlights';
 
@@ -63,7 +62,7 @@ export const Wrapper = styled.div`
 
 function AppHighlights() {
 
-  const imageList = highlights.map((item) => <PortfolioSection key={item.id} img={item.image}/>)
+  const imageList = highlights.map((item) => <PortfolioSection key={item.key} img={item.image}/>)
 
   return (
     <Wrapper className="portfolio" >

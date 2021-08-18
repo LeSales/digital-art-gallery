@@ -82,20 +82,19 @@ function LoginForm() {
 
   const [data, setData] = useState({
     email: "",
-    password: "",
   });
 
   function handle(e) {
     const newData = {...data}
     newData[e.target.id] = e.target.value;
     setData(newData);
+    console.log(newData);
   }
 
   function submit(e){
     e.preventDefault();
-    api.post('/auth/authenticate', {
-      email: data.email,
-      password: data.password
+    api.post('/auth/forgot_password', {
+      email: data.email
     }).then(res => {
       console.log(res.data)
     })
@@ -103,7 +102,7 @@ function LoginForm() {
 
   return (
     <Wrapper>
-      <h1 className="title-form">Entrar</h1>
+      <h1 className="title-form">Recuperar senha</h1>
       <form onSubmit={(e) => submit(e)}>
         <input
           id="email"
@@ -114,24 +113,8 @@ function LoginForm() {
           onChange={(e) => handle(e)}
           value={data.email}
         />
-        <input
-          id="password"
-          className="input-senha"
-          type="password"
-          placeholder="Senha"
-          {...register("Senha", {
-            required: true,
-            max: 16,
-            min: 6,
-            maxLength: 14,
-          })}
-          onChange={(e) => handle(e)}
-          value={data.password}
-        />
-        <p className="text-login">Não possui login? <Link href="/registerPage"><a className="link-register"><strong>Cadastre-se</strong></a></Link></p>
-        <p className="text-login">Clique <Link href="/forgotPasswordPage"><a className="link-register"><strong>aqui</strong></a></Link> para recuperar sua senha.</p>
 
-        <input onSubmit={() => createAccount()} className="enviar" type="submit" value="Entrar" />
+        <input onSubmit={() => createAccount()} className="enviar" type="submit" value="Enviar" />
       </form>
     </Wrapper>
   );
