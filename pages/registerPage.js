@@ -12,7 +12,7 @@ const Title = styled.h1`
 
 export default function Gallery() {
   return <>
-  <AppHeader></AppHeader>
+  <AppHeader login={true} register={true} gallery={true}></AppHeader>
   <RegisterSection/>
   <AppFooter></AppFooter>
   </>

@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #fff;
-  background:#303030
-    no-repeat;
+  background:#303030;
   background-position: center start;
   background-size: cover;
   overflow: hidden;

@@ -27,7 +27,17 @@ export const Wrapper = styled.header`
       padding: 0 3rem;
     }
   }
-  div {
+
+  .avatar {
+    margin-left: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 30px;
+    border: 1px solid #b3b1b1;
+    background-color: #d6d6d6;
+  }
+
+  .container {
     max-width: 980px;
     width: 100%;
     display: flex;
@@ -39,6 +49,8 @@ export const Wrapper = styled.header`
   }
   ul {
     display: flex;
+    justify-content: center;
+    align-items: center ;
     text-decoration: none;
     list-style: none;
   }
@@ -93,10 +105,10 @@ export const SandwichButton = styled.div`
   }
 `;
 
-function AppHeader() {
+function AppHeader(props) {
   return (
     <Wrapper>
-      <div>
+      <div className="container">
         <h2>Logo</h2>
         <nav>
           <ul className="menu">
@@ -105,21 +117,22 @@ function AppHeader() {
                 <a>Home</a>
               </Link>
             </li>
-            <li>
+            {props.gallery && <li>
               <Link href="/gallery">
                 <a>Galeria</a>
               </Link>
-            </li>
-            <li>
+            </li>}
+            {props.login && <li>
               <Link href="/loginPage">
                 <a>Login</a>
               </Link>
-            </li>
-            <li>
+            </li>}
+            {props.register && <li>
               <Link href="/registerPage">
                 <a>Registrar</a>
               </Link>
-            </li>
+            </li>}
+            {props.avatar && <div className="avatar"></div>}
           </ul>
         </nav>
       </div>

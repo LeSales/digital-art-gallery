@@ -13,7 +13,7 @@ const Title = styled.h1`
 
 export default function Home() {
   return <>
-  <AppHeader></AppHeader>
+  <AppHeader login={true} register={true} gallery={true}></AppHeader>
   <AppHome></AppHome>
   <AppSobre></AppSobre>
   <AppHighlights></AppHighlights>

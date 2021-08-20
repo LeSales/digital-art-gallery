@@ -11,7 +11,7 @@ const Title = styled.h1`
 
 export default function Gallery() {
   return <>
-  <AppHeader></AppHeader>
+  <AppHeader login={true} register={true}></AppHeader>
   <ForgotPasswordSection/>
   <AppFooter></AppFooter>
   </>

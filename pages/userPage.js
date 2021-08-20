@@ -11,7 +11,7 @@ const Title = styled.h1`
 
 export default function Gallery() {
   return <>
-  <AppHeader></AppHeader>
+  <AppHeader avatar={true} gallery={true}></AppHeader>
   <AppHome>
   <div>To do: user page</div>
   </AppHome>
